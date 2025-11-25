@@ -67,3 +67,12 @@ def atualizar_disponibilidade(id_livro):
         print("Livro não encontrado.")
 
     con.close()
+
+# Remover livro
+def remover_livro(id_livro):
+    con = conectar()
+    cur = con.cursor()
+
+    cur.execute("DELETE FROM livros WHERE id = ?", (id_livro,))
+    con.commit()
+    con.close()

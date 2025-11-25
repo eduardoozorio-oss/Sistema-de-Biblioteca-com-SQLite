@@ -48,3 +48,22 @@ def listar_livros():
 
     con.close()
     return livros
+
+# Atualizar disponibilidade
+def atualizar_disponibilidade(id_livro):
+    con = conectar()
+    cur = con.cursor()
+
+    cur.execute("SELECT disponivel FROM livros WHERE id = ?", (id_livro,))
+    resposta = cur.fetchone()
+
+    if resposta:
+        atual = resposta[0]
+        novo = "Não" if atual == "Sim" else "Sim"
+
+        cur.execute("UPDATE livros SET disponivel = ? WHERE id = ?", (novo, id_livro))
+        con.commit()
+    else:
+        print("Livro não encontrado.")
+
+    con.close()

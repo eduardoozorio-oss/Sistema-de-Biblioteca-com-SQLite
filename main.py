@@ -24,3 +24,14 @@ def criar_tabela():
 
     con.commit()
     con.close()
+
+# Cadastrar livro
+def cadastrar_livro(titulo, autor, ano):
+    con = conectar()
+    cur = con.cursor()
+
+    cur.execute("INSERT INTO livros (titulo, autor, ano, disponivel) VALUES (?, ?, ?, 'Sim')",
+                (titulo, autor, ano))
+
+    con.commit()
+    con.close()

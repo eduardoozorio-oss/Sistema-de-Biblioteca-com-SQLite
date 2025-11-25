@@ -1,0 +1,20 @@
+# Projeto Biblioteca
+
+Este é um sistema simples de biblioteca feito em Python.
+Ele usa SQLite para guardar os livros e também tem uma
+interface usando Streamlit.
+
+## Funções:
+- Cadastrar livro
+- Listar livros
+- Atualizar disponibilidade
+- Remover livro
+- Pesquisar por título (extra)
+- Pesquisar por autor (extra)
+- Relatório por autor (extra)
+
+## Como rodar:
+python main.py
+
+## Interface Gráfica:
+streamlit run app.py

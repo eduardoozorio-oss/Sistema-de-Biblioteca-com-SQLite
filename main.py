@@ -35,3 +35,16 @@ def cadastrar_livro(titulo, autor, ano):
 
     con.commit()
     con.close()
+
+
+
+# Listar livros
+def listar_livros():
+    con = conectar()
+    cur = con.cursor()
+
+    cur.execute("SELECT * FROM livros")
+    livros = cur.fetchall()
+
+    con.close()
+    return livros
